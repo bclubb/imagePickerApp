@@ -15,6 +15,7 @@
 - (void) viewDidLoad{
 	self.picker = [[[UIImagePickerController alloc] init] autorelease];
 	self.picker.delegate = self;
+	[selectedImage setImage:image];
 }
 
 - (void)viewDidUnload {
@@ -25,6 +26,7 @@
 
 - (void)dealloc {
 	[selectedImage release];
+	[image release];
 	[picker release];
     [super dealloc];
 }
@@ -45,7 +47,8 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)Picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-	[selectedImage setImage:(UIImage *)[info valueForKey:UIImagePickerControllerOriginalImage]];
+	image = (UIImage *)[info valueForKey:UIImagePickerControllerOriginalImage];
+	[selectedImage setImage:image];
 	[self dismissModalViewControllerAnimated:YES];
 }
 

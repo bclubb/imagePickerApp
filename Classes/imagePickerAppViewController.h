@@ -11,6 +11,7 @@
 @interface imagePickerAppViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
 	UIImagePickerController *picker;
 	UIImageView *selectedImage;
+	UIImage *image;
 }
 
 @property (nonatomic, retain) UIImagePickerController* picker;
